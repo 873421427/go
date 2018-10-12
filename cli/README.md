@@ -28,18 +28,38 @@ selpg -s 1 -l 2
 这里主要介绍一下用到的包
 1. 读取文件
 ```
-  fin := os.Stdin
-  fin, err := os.Open(sa.in_filename)
+fin := os.Stdin
+fin, err := os.Open(sa.in_filename)
 ```
 得到打开文件的指针
 
 2.
 
 ```
-  cmd := exec.Command("grep", "-nf", "keyword")
+cmd := exec.Command("grep", "-nf", "keyword")
 ```
+帮助我们执行外部命令 ，返回cmd结构
+```
+cmd.Stdout = fout
+```
+将命令执行的标准输出设置为系统的标准输出
 
+3.
+```
+  line := bufio.NewScanner(fin)
+```
+对标准输入得到扫描器
+```  
+  fout.Write([]byte(line.Text() + "\n"))
+```
+在标准输出写入每行的读入
+```
+  inpipe.Write([]byte(line.Text() + "\n"))
+```
+往管道中写入每行的数据
 
+##测试
+| < > 都是linux 的原生操作符，因此不用额外实现
 
 
 ## 遇到的问题
@@ -47,4 +67,4 @@ selpg -s 1 -l 2
 ```
 go run selpg.go
 ```
-时可以正常运行， 而用xshell连接时运行命令则会提示找不到flag包，我认为是我引用包的名字课能有问题
+时可以正常运行， 而用xshell连接时运行命令则会提示找不到flag包，我认为是我引用包的名字可能有问题
