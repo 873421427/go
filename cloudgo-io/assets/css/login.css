@@ -1,0 +1,20 @@
+.request-table {
+    margin: 15px auto;
+    border-collapse: collapse;
+  }
+  
+  .request-table thead tr {
+    text-align: left;
+  }
+  
+  .request-table th,
+  .request-table td {
+    border: 1px;
+    padding: 10px;
+  }
+  
+  .back-btn {
+    display: block;
+    margin: auto;
+    cursor: pointer;
+  }

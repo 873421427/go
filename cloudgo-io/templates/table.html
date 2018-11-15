@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="/static/css/login.css" />
+</head>
+
+<body>
+  <table class="request-table">
+    <thead>
+      <tr>
+        <th>Key</th>
+        <th>Value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Name</td>
+        <td>{{ .Name }}</td>
+      </tr>
+      <tr>
+        <td>When</td>
+        <td>{{ .When }}</td>
+      </tr>
+    </tbody>
+  </table>
+  <input type="button" class="back-btn" value="Back" />
+  <script src="/static/js/login.js"></script>
+</body>
+
+</html>
